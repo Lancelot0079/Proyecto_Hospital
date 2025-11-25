@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>App1 - Productos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container py-4">
+  <h3>App1 (Jinja) — Productos</h3>
+  <table class="table table-striped align-middle">
+    <thead><tr><th>#</th><th>Nombre</th><th>Precio</th><th>Creado</th></tr></thead>
+    <tbody>
+      {% for p in productos %}
+      <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ "%.2f"|format(p.precio) }}</td> <!-- formatea a 2 decimales -->
+        <td><small>{{ p.creado_en }}</small></td> <!-- muestra fecha/hora de creación -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="text-muted">API pública: <code>GET /api/productos</code>, <code>POST/PUT/DELETE</code> bajo <code>/api</code>.</p>
+</body>
+</html>
